@@ -1,0 +1,15 @@
+<h1>{{id}}</h1>
+
+{{#if doEditKey}}
+    {{textarea value=value class="editKeyArea"}}
+
+    <button class="btn btn-primary" {{action "saveKey" this}}>Save</button>
+    <button class="btn btn-default" {{action "cancelKey" this}}>Cancel</button>
+{{else}}
+    <div class="editKeyArea">
+        {{value}}
+    </div>
+
+    <button class="btn btn-primary" {{action "editKey" this}}>Edit</button>
+
+{{/if}}

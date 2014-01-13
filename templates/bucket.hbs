@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-6">
+        <h1>{{id}}</h1>
+
+
+        {{#if showCreateKey}}
+            {{input type="text" value=id class="form-control"}}
+            {{input type="text" value=controller.newKeyName class="form-control"}}
+            <button class="btn btn-primary" {{action "saveKey"}}>Create</button>
+            <button class="btn btn-default" {{action "cancelKey"}}>Cancel</button>
+        {{else}}
+            <button class="btn btn-default form-control" style="margin-bottom: 15px;" {{action "createKey"}}>
+                Create Bucket
+            </button>
+        {{/if}}
+
+
+        <div class="list-group">
+            {{#each key in keys}}
+                {{#link-to "bucket.key" key class="list-group-item"}}
+                    {{key.keyName}}
+                    <button class="btn btn-xs btn-default pull-right" {{action "editKey" key}}>Edit</button>
+                {{/link-to}}
+
+                {{edit-key elementId=key.modalId item=key}}
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        {{outlet}}
+    </div>
+</div>

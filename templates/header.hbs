@@ -1,0 +1,10 @@
+<div id="headerArea">
+    <img src="images/header_logo.png" />
+    <div class="pull-right">
+        {{#if controllers.user.isLoggedIn}}
+            <button class="btn btn-primary" {{action "doLogOut"}}>Log Out</button>
+        {{else}}
+            <button class="btn btn-primary" {{action "doLogIn"}}>Log In</button>
+        {{/if}}
+    </div>
+</div>
